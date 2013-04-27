@@ -24,6 +24,7 @@ Button rectManipulate;
 
 /*
 *Datorns lokala ip, KOLLA ATT DEN STÄMMEMERERETERERERERERER
+
  */
 //static final String computerLAN="192.168.1.2";
 static final String computerLAN="192.168.1.4";
