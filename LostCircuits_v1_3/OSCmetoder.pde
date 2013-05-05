@@ -38,13 +38,13 @@ public synchronized void oscEvent(OscMessage theOscMessage) {
     vibe.vibrate(200);
     prompt="FLIPP UITTTT";
   }
-  if (list[1].equals("explode") && list[2].equals(serial)) {
+ /* if (list[1].equals("explode") && list[2].equals(serial)) {
     vibe.vibrate(200);
     pTimer=millis() + 8000;
     changeButton=true;
     explodeB=true;
     prompt="Do you want to press the button?";
-  }
+  }*/
 }
 
 // metoder för DIRECTIONS

@@ -155,12 +155,6 @@ void draw() {
   case 1:
     defaultLayout();
     break;
-  case 2:
-    task1();
-    break;
-  case 3:
-    multiAccPuzzle();
-    break;
   }
 }
 //Responsivitetetet
