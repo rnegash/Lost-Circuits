@@ -110,7 +110,7 @@ public synchronized void update() {
       }
       if (explodeB) {
         currentLayout=1;
-        explode(1);
+        //explode(1);
         prompt="   :)";
         vibe.vibrate(1000);
         explodeB=false;

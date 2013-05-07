@@ -27,7 +27,7 @@ Button rectManipulate;
  
  */
 //static final String computerLAN="192.168.1.2";
-static final String computerLAN="192.168.1.105";
+static final String computerLAN="192.168.1.120";
 //static final String computerLAN="10.2.17.220";
 int playerID;
 

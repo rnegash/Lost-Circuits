@@ -24,11 +24,17 @@ public synchronized void svetsTask() {
     objectal.checkTouch();
     if (sum>sumOfIds) {
       background(#FF1CFC);
+      svetsDone(1);
+  
+      currentLayout=1;
     }
   }
+        svetsDone(0);
+
   svetsRun=false;
 }
 void svetsSetup() {
+  //svetsRun=true;
   object = new ArrayList();
   //lägg till alla spots
   for (float x=displayWidth/2.28;x<displayWidth/2;x+=displayWidth/16) {

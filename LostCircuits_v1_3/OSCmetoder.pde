@@ -21,11 +21,12 @@ public synchronized void oscEvent(OscMessage theOscMessage) {
   for (int i=0;i<list.length;i++) {
     println(i+" "+list[i]);
   }
-  if (list[1].equals("prompt") && list[2].equals(serial) && list[3].equals("helpfriend")) {
+  if (list[1].equals("svets") && list[2].equals(serial)) {
     vibe.vibrate(200);
-    prompt="FLIPP UITTTT11";
-    accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
-    moveAccelerometerY(accY);
+    //svetsDone(1);
+    manipulate(0, 0);
+
+    currentLayout=2;
   }
   if (list[1].equals("prompt") && list[2].equals(serial) && list[3].equals("helpfriend2")) {
     vibe.vibrate(200);
@@ -38,13 +39,13 @@ public synchronized void oscEvent(OscMessage theOscMessage) {
     vibe.vibrate(200);
     prompt="FLIPP UITTTT";
   }
- /* if (list[1].equals("explode") && list[2].equals(serial)) {
-    vibe.vibrate(200);
-    pTimer=millis() + 8000;
-    changeButton=true;
-    explodeB=true;
-    prompt="Do you want to press the button?";
-  }*/
+  /* if (list[1].equals("explode") && list[2].equals(serial)) {
+   vibe.vibrate(200);
+   pTimer=millis() + 8000;
+   changeButton=true;
+   explodeB=true;
+   prompt="Do you want to press the button?";
+   }*/
 }
 
 // metoder för DIRECTIONS
@@ -116,12 +117,12 @@ void onAccelerometerEvent(float x, float y, float z)
   accelerometerY = y;
   accelerometerZ = z;
 }
-void explode(int eventData) {
+void svetsDone(int eventData) {
   OscMessage myOscMessage = new OscMessage("/player");  
   myOscMessage.add(serial);
-  myOscMessage.add("explode"); 
+  myOscMessage.add("svets"); 
   myOscMessage.add(eventData);
-  myOscMessage.add(0);
+  myOscMessage.add(eventData);
   oscP5.send(myOscMessage, myBroadcastLocation);
   println("exp "+eventData);
 }
