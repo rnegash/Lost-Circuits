@@ -30,6 +30,7 @@ Button rectManipulate;
 static final String computerLAN="192.168.1.120";
 //static final String computerLAN="10.2.17.220";
 int playerID;
+float accY;//Värdet som skickas för accelerometern 
 
 String serial = null;
 boolean locked = false;
@@ -135,6 +136,10 @@ void draw() {
     svetsTask();
     break;
   }
+  
+  //
+
+  
 }
 
 //Bakgrundsmönstret

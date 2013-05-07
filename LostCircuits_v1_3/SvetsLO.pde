@@ -2,8 +2,9 @@
 **svets that shit
  *
  */
-float accY;//Värdet som skickas för accelerometern 
+//float accY;//Värdet som skickas för accelerometern 
 // accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
+//    moveAccelerometerY(accY);
 boolean svetsRun=true;
 
 int nur;
