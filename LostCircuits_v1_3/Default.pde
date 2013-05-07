@@ -87,22 +87,6 @@ void defaultLayout() {
   //ellipse( 140, 260, displayWidth/200, displayHeight/120);
   ellipse( displayWidth/5.7, displayHeight/1.8, displayWidth/80, displayHeight/48 );
   popStyle();
-  /*
-  //FADE CONSOLE
-   if (g==0) {
-   v=true;
-   s=false;
-   }
-   if (g==255) {
-   s=true;
-   v=false;
-   }
-   if (v) {
-   g++;
-   }
-   if (s) {
-   g--;
-   }*/
   promptMeth();
 }
 /*
@@ -124,7 +108,7 @@ void promptMeth() {
     prompt="";
     changeButton=false;
   }
-  fill(255);
+  fill(0);
   rect(displayWidth/3.5, displayHeight/6.8, displayWidth/2.42, displayHeight/9.6);
   fill(200);
   textSize(displayWidth/40);

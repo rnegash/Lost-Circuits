@@ -24,10 +24,10 @@ Button rectManipulate;
 
 /*
 *Datorns lokala ip, KOLLA ATT DEN STÄMMEMERERETERERERERERER
-
+ 
  */
 //static final String computerLAN="192.168.1.2";
-static final String computerLAN="192.168.1.4";
+static final String computerLAN="192.168.1.105";
 //static final String computerLAN="10.2.17.220";
 int playerID;
 
@@ -66,35 +66,17 @@ void setup() {
   }
   oscP5Port=res*50;
   broadcastPort=res*60;
-  
+
   screenX=displayWidth;
   screenY=displayHeight;
-  
+
   sensor = new KetaiSensor(this);
   changeButton=false;//boolean för om man vill byta till acc-layout, blir true när spelaren går in i triggern
   vibe = new KetaiVibrate(this);//Starta vibratorn, mmmmm, kolla vibratorpermission om det inte fungerar. Används just nu i oscEvent()
   sensor.start();//ketai, starta för att få access till sensorerna
   //frameRate(15);
-  moveSound = new APMediaPlayer(this); //create new APMediaPlayer
-  moveSound.setMediaFile("move.wav");//set the file (files are in data folder)
-  moveSound.setLooping(true); 
-  moveSound.setVolume(0.3, 0.3);
 
-  jumpSound = new APMediaPlayer(this); //create new APMediaPlayer
-  jumpSound.setMediaFile("jump.wav");//set the file (files are in data folder)
-  jumpSound.setLooping(true); 
-  jumpSound.setVolume(0.9, 0.9);
-
-  manipulateSound = new APMediaPlayer(this); //create new APMediaPlayer
-  manipulateSound.setMediaFile("manipulate.mp3");//set the file (files are in data folder)
-  manipulateSound.setLooping(true); 
-  manipulateSound.setVolume(0.5, 0.5);
-
-  switchSound = new APMediaPlayer(this); //create new APMediaPlayer
-  switchSound.setMediaFile("lightSwitch.wav");//set the file (files are in data folder)
-  switchSound.setLooping(false); 
-  switchSound.setVolume(0.05, 0.05);
-
+  loadMediaFiles();
   // Define and create buttons
   //Knappar för setupScreen();
   rectPlayer1 = new Button("p1", displayWidth/3, displayHeight/2, displayWidth/8, #152BE8, #17238E);//blueplayer
@@ -106,13 +88,8 @@ void setup() {
 
   rectManipulate = new Button("manip", displayWidth/3.5, displayHeight/3.2, displayWidth/2, displayHeight/1.6, 50, 30, 7);//up
   rectChange = new Button("change", displayWidth/1.39, displayHeight/6.8, displayWidth/15, #4DAA43, #2F9B24);//change
-  //  rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #22BAE3, #22BAE3);//light
   //Knappar för task1();
   rectBack = new Button("back", displayWidth/1.10, displayHeight/9.6, displayHeight/9, #B72929, #C92B2B);//bakknapp för taskscenen just nu
-  //Knappar för multiAccPuzzle();
-  rectPF1 = new Button("pf1", displayWidth/8, displayHeight/1.4, displayWidth/8, buttoncolor, highlight);//rect1
-  rectPF2 = new Button("pf2", displayWidth/2.6, displayHeight/1.4, displayWidth/8, buttoncolor, highlight);//rect2
-  rectPF3 = new Button("pf3", displayWidth/1.6, displayHeight/1.4, displayWidth/8, buttoncolor, highlight);//rect3
 
   /*
   *hämta telefonens ip
@@ -135,7 +112,6 @@ void setup() {
 } 
 
 void draw() {
-
   update();//Hanterar allt som ska hända när vi trycker på knapparna, kolla Updatefliken
   background(bg);
   //Bakgrundsmönstret
@@ -155,22 +131,11 @@ void draw() {
   case 1:
     defaultLayout();
     break;
+  case 2: 
+    svetsTask();
+    break;
   }
 }
-//Responsivitetetet
-public static float pX(float x) {
-  float nX=0;
-  nX=screenX/x;
-  nX=screenX/nX;
-  return nX;
-}
-public static float pY(float y) {
-  float nY=0;
-  nY=screenY/y;
-  nY=screenY/nY;
-  return nY;
-}
-
 
 //Bakgrundsmönstret
 
@@ -185,8 +150,26 @@ void pattern(int x, int y) {
   popStyle();
 }
 
-void loadMediaFiles(){
+void loadMediaFiles() {
+  moveSound = new APMediaPlayer(this); //create new APMediaPlayer
+  moveSound.setMediaFile("move.wav");//set the file (files are in data folder)
+  moveSound.setLooping(true); 
+  moveSound.setVolume(0.3, 0.3);
 
+  jumpSound = new APMediaPlayer(this); //create new APMediaPlayer
+  jumpSound.setMediaFile("jump.wav");//set the file (files are in data folder)
+  jumpSound.setLooping(true); 
+  jumpSound.setVolume(0.9, 0.9);
+
+  manipulateSound = new APMediaPlayer(this); //create new APMediaPlayer
+  manipulateSound.setMediaFile("manipulate.mp3");//set the file (files are in data folder)
+  manipulateSound.setLooping(true); 
+  manipulateSound.setVolume(0.5, 0.5);
+
+  switchSound = new APMediaPlayer(this); //create new APMediaPlayer
+  switchSound.setMediaFile("lightSwitch.wav");//set the file (files are in data folder)
+  switchSound.setLooping(false); 
+  switchSound.setVolume(0.05, 0.05);
 }
 
 void onCreate(Bundle bundle) {
@@ -209,4 +192,17 @@ public void onDestroy() {
     switchSound.release(); //release the player
   }
 }
-
+/*//Responsivitetetet
+ public static float pX(float x) {
+ float nX=0;
+ nX=screenX/x;
+ nX=screenX/nX;
+ return nX;
+ }
+ public static float pY(float y) {
+ float nY=0;
+ nY=screenY/y;
+ nY=screenY/nY;
+ return nY;
+ }
+ */

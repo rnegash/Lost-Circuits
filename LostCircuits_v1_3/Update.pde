@@ -80,7 +80,7 @@ public synchronized void update() {
       fill(100);
       ellipse(gxVal, gyVal, 20, 20);
       popStyle();
-      if (!lightB) {
+      if (lightB) {
         moveSpotLight(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
         println("manioperkp");
       }
@@ -128,34 +128,6 @@ public synchronized void update() {
       changeButton=false;
     }
   }
-  /*****************MULTI ACCEN*********************/
 
-  else if (currentLayout==3) {
-    if (rectPF1.pressed()) {
-      blockPicker1=true;
-      blockPicker2=false;
-      blockPicker3=false;
-    }
-
-    if (rectPF2.pressed()) {
-      blockPicker1=false;
-      blockPicker2=true;
-      blockPicker3=false;
-    }
-
-    if (rectPF3.pressed()) {
-      blockPicker1=false;
-      blockPicker2=false;
-      blockPicker3=true;
-    }
-
-    if (rectBack.pressed()) {  
-      moveAccelerometerY(0, 1);
-      moveAccelerometerY(0, 2);
-      moveAccelerometerY(0, 3);
-      currentLayout=1;
-      changeButton=false;
-    }
-  }
 }
 

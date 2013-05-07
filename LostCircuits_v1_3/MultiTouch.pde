@@ -41,9 +41,6 @@ void buttonsDown(int id, float x, float y) {
   }
   rectPlayer1.set(id, x, y);
   rectPlayer2.set(id, x, y);
-  rectPF1.set(id, x, y);
-  rectPF2.set(id, x, y);
-  rectPF3.set(id, x, y);
   rectManipulate.set(id, x, y);
 }
 
@@ -58,9 +55,6 @@ void buttonsMove(int id, float x, float y) {
   }  
   rectPlayer1.update(id, x, y);
   rectPlayer2.update(id, x, y);
-  rectPF1.update(id, x, y);
-  rectPF2.update(id, x, y);
-  rectPF3.update(id, x, y);
   rectManipulate.update(id, x, y);
 }
 
@@ -76,9 +70,6 @@ void buttonsUp(int id, float x, float y) {
   lightMan=true;
   rectPlayer1.unset(id, x, y);
   rectPlayer2.unset(id, x, y);
-  rectPF1.unset(id, x, y);
-  rectPF2.unset(id, x, y);
-  rectPF3.unset(id, x, y);
   rectManipulate.unset(id, x, y);
 }
 
