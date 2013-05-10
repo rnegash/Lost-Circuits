@@ -2,7 +2,7 @@ public static float pTimer;
 String[] list;
 public static boolean explodeB=false;
 //connect, skickas i void setup(), skickar telefonens id till unity och ger den ett id där, player1id eller player2id
-
+public static boolean gravB=false;
 void connect(int bp, int oscp) {
   OscMessage myOscMessage = new OscMessage("/idConnect"); 
   myOscMessage.add(myIP);
@@ -50,6 +50,7 @@ public synchronized void oscEvent(OscMessage theOscMessage) {
 
   if (list[1].equals("gravity") && list[2].equals(serial)) {
     vibe.vibrate(200);
+    gravB=true;
     prompt="FLIPP UITTTT";
   }
   /* if (list[1].equals("explode") && list[2].equals(serial)) {
@@ -137,6 +138,6 @@ void svetsDone(int eventData) {
   myOscMessage.add(eventData);
   myOscMessage.add(eventData);
   oscP5.send(myOscMessage, myBroadcastLocation);
-  println("exp "+eventData);
+  //println("exp "+eventData);
 }
 

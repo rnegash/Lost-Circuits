@@ -7,11 +7,11 @@ int g=255;
 boolean s=false;
 boolean v=false;
 void defaultLayout() {
-
-  accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
-  moveAccelerometerY(accY);
-  //println(accY);
-
+  if (gravB) {
+    accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
+    moveAccelerometerY(accY);
+    //println(accY);
+  }
   rectJump.display();
   rectLeft.display();
   rectRight.display();
