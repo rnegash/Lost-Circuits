@@ -21,13 +21,26 @@ public synchronized void oscEvent(OscMessage theOscMessage) {
   for (int i=0;i<list.length;i++) {
     println(i+" "+list[i]);
   }
-  if (list[1].equals("svets") && list[2].equals(serial)) {
-    vibe.vibrate(200);
-    //svetsDone(1);
-    manipulate(0, 0);
 
+  if (list[1].equals("svets") && list[2].equals(serial)&&list[3].equals("1")) {
+    vibe.vibrate(200);
+    manipulate(0, 0);
+    sID=1;
+    currentLayout=2;
+  }  
+  if (list[1].equals("svets") && list[2].equals(serial)&&list[3].equals("2")) {
+    vibe.vibrate(200);
+    manipulate(0, 0);
+    sID=2;
     currentLayout=2;
   }
+  if (list[1].equals("svets") && list[2].equals(serial)&&list[3].equals("3")) {
+    vibe.vibrate(200);
+    manipulate(0, 0);
+    sID=3;
+    currentLayout=2;
+  }
+
   if (list[1].equals("prompt") && list[2].equals(serial) && list[3].equals("helpfriend2")) {
     vibe.vibrate(200);
     prompt="FLIPP UITTTT11";

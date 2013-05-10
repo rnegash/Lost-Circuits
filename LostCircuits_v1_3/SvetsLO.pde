@@ -6,7 +6,7 @@
 // accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
 //    moveAccelerometerY(accY);
 boolean svetsRun=true;
-
+int sID;
 int nur;
 int counter=1;
 ArrayList object;
@@ -25,12 +25,16 @@ public synchronized void svetsTask() {
     objectal.checkTouch();
     if (sum>sumOfIds) {
       background(#FF1CFC);
-      svetsDone(1);
-  
+      println(sID);
+      for (int j =0;j<100; j++) {
+        svetsDone(sID);
+      }
+      svetsRun=false;
+      sum=0;
       currentLayout=1;
     }
   }
-        svetsDone(0);
+  svetsDone(0);
 
   svetsRun=false;
 }

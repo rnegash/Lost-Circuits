@@ -82,11 +82,11 @@ public synchronized void update() {
       popStyle();
       if (lightB) {
         moveSpotLight(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
-        println("manioperkp");
+        //println("manioperkp");
       }
       else {
         manipulate(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
-        println("lajjt");
+        //println("lajjt");
       }
       //println(gxVal-displayWidth/1.88+"   "+ (gyVal-displayHeight/1.65)*-1);
     }
@@ -128,6 +128,5 @@ public synchronized void update() {
       changeButton=false;
     }
   }
-
 }
 
