@@ -20,7 +20,6 @@ public synchronized void svetsTask() {
   }
   pushMatrix();
   translate(mouseX, mouseY);
-  background(0);
   if (mousePressed) {
     ps.addParticle();
     ps.run();
