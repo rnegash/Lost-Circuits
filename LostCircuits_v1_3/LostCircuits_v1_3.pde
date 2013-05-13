@@ -13,6 +13,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.text.NumberFormat;
 import apwidgets.*;
+import java.util.Iterator;
 
 APMediaPlayer moveSound, jumpSound, manipulateSound, switchSound;
 KetaiVibrate vibe;
@@ -22,13 +23,18 @@ NetAddress myBroadcastLocation;
 Button rectLeft, rectRight, rectJump, rectBack, rectChange, rectLight, rectPlayer1, rectPlayer2, rectPF1, rectPF2, rectPF3;
 Button rectManipulate;
 
+APWidgetContainer widgetContainer; 
+APEditText textField;
+
+
+
 /*
 *Datorns lokala ip, KOLLA ATT DEN STÄMMEMERERETERERERERERER
  
  */
-//static final String computerLAN="192.168.1.2";
-//static final String computerLAN="192.168.1.120";
-static final String computerLAN="10.2.7.145";
+//String computerLAN="192.168.1.2";
+//String computerLAN="192.168.1.120";
+String computerLAN="10.2.7.242";
 int playerID;
 float accY;//Värdet som skickas för accelerometern 
 
@@ -108,6 +114,10 @@ void setup() {
   } 
   catch (SocketException ex) {
   }
+
+  widgetContainer = new APWidgetContainer(this); //create new container for widgets
+  textField = new APEditText( displayWidth/40, int(displayHeight/1.24), int(displayWidth/3.2), displayHeight/6);
+  widgetContainer.addWidget(textField); //place textField in container
 
   currentLayout=0;//vilken scen man börjar på, kolla switchen i draw()
 } 

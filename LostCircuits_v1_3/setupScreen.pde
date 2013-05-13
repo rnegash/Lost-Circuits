@@ -25,6 +25,7 @@ void setupScreen() {
     usBlink=" ";
   }
   text(introText+usBlink, displayWidth/4, displayHeight/4.8);
+  text("Please enter host IP below:", displayWidth/40, displayHeight/1.26);
   popStyle();
 }
 

@@ -18,7 +18,14 @@ public synchronized void svetsTask() {
   if (svetsRun) {
     svetsSetup();
   }
-
+  pushMatrix();
+  translate(mouseX, mouseY);
+  background(0);
+  if (mousePressed) {
+    ps.addParticle();
+    ps.run();
+  }
+  popMatrix();
   for (int i =0;i<object.size(); i++) {
     spots objectal = (spots) object.get(i);
     objectal.display();
@@ -38,8 +45,12 @@ public synchronized void svetsTask() {
 
   svetsRun=false;
 }
+ParticleSystem ps;
+
 void svetsSetup() {
   //svetsRun=true;
+  ps = new ParticleSystem(new PVector(0, 0));
+
   object = new ArrayList();
   //lägg till alla spots
   for (float x=displayWidth/2.28;x<displayWidth/2;x+=displayWidth/16) {
@@ -49,5 +60,80 @@ void svetsSetup() {
     }
   }
   sumOfIds-=counter;
+}
+
+
+class Particle {
+  PVector location;
+  PVector velocity;
+  PVector acceleration;
+  float lifespan;
+
+  Particle(PVector l) {
+    acceleration = new PVector(0, 0.05);
+    velocity = new PVector(random(-1, 1), random(-2, 0));
+    location = l.get();
+    lifespan = 255.0;
+  }
+
+  void run() {
+    update();
+    display();
+  }
+
+  // Method to update location
+  void update() {
+    velocity.add(acceleration);
+    location.add(velocity);
+    lifespan -= 1.0;
+  }
+
+  // Method to display
+  void display() {
+    stroke(255, lifespan);
+    fill(color(232, 216, 94), lifespan);
+    ellipse(location.x, location.y, 2, 5);
+  }
+
+  // Is the particle still useful?
+  boolean isDead() {
+    if (lifespan < 0.0) {
+      return true;
+    } 
+    else {
+      return false;
+    }
+  }
+}
+
+
+
+
+// A class to describe a group of Particles
+// An ArrayList is used to manage the list of Particles 
+
+class ParticleSystem {
+  ArrayList<Particle> particles;
+  PVector origin;
+
+  ParticleSystem(PVector location) {
+    origin = location.get();
+    particles = new ArrayList<Particle>();
+  }
+
+  void addParticle() {
+    particles.add(new Particle(origin));
+  }
+
+  void run() {
+    Iterator<Particle> it = particles.iterator();
+    while (it.hasNext ()) {
+      Particle p = it.next();
+      p.run();
+      if (p.isDead()) {
+        it.remove();
+      }
+    }
+  }
 }
 

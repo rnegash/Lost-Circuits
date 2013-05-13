@@ -12,29 +12,34 @@ public synchronized void update() {
       introText="You chose blue, please wait...";  
       bg=color(#020036);
       pc=color(#3E87EA);      
-
+      if (textField.getText()!=null) {
+        computerLAN=textField.getText();
+      }
       playerID=8001;
       oscP5 = new OscP5(this, oscP5Port);//Port för inkommande meddelanden, måste stämma med den i unity
       myBroadcastLocation = new NetAddress(computerLAN, playerID);
       connect(broadcastPort, oscP5Port);
-      rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #22BAE3, #22BAE3);//light
 
+      rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #22BAE3, #22BAE3);//light
+      println(textField.getText());
       pTimer=millis()+8000;
+      widgetContainer.hide(); 
       currentLayout=1;
+      println(computerLAN);
     }
     else if (rectPlayer2.pressed()) {
       introText="You chose red, please wait...";  
       bg=color(#360001);
       pc=color(#DB3C41);      
-
       playerID=8002;
       oscP5 = new OscP5(this, oscP5Port);//Port för inkommande meddelanden, måste stämma med den i unity
       myBroadcastLocation = new NetAddress(computerLAN, playerID);
       connect(broadcastPort, oscP5Port);
-      rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #E82560, #E82560);//light
 
+      rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #E82560, #E82560);//light
+      println(textField.getText());
+      widgetContainer.hide(); 
       pTimer=millis()+8000;
-      //
       currentLayout=1;
     }
   }
