@@ -28,4 +28,3 @@ void setupScreen() {
   text("Please enter host IP below:", displayWidth/40, displayHeight/1.26);
   popStyle();
 }
-

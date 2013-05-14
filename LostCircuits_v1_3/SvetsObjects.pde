@@ -11,10 +11,10 @@ class spots {
     this.id=id;
   }
   color  f=100;//färg
-  void display() {
+  void display(float sw) {
     stroke(255);
     fill(f);
-    ellipse(_x, _y, _s, _s);
+    ellipse(_x+sw, _y, _s, _s);
   }
 
   /*

@@ -24,7 +24,7 @@ public synchronized void update() {
       println(textField.getText());
       pTimer=millis()+8000;
       widgetContainer.hide(); 
-      currentLayout=1;
+      currentLayout=2;
       println(computerLAN);
     }
     else if (rectPlayer2.pressed()) {
@@ -104,7 +104,7 @@ public synchronized void update() {
           moveRight(0);
           moveUp(0);
           moveLeft(0);
-          currentLayout=2;
+          currentLayout=1;
         }
         else if (changeTo==3) {
           moveRight(0);

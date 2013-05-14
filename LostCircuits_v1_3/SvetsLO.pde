@@ -12,7 +12,7 @@ int counter=1;
 ArrayList object;
 public int sumOfIds; //Räknar ihop summan av id´na som har assignats till spotsen
 public int sum; //Räknar ihop summan av id´na som har assignats till spotsen
-
+float sk;
 public synchronized void svetsTask() {
   //Loopa igenom spotsen och kör funktionerna för att visa och kolla touch
   if (svetsRun) {
@@ -26,11 +26,20 @@ public synchronized void svetsTask() {
   }
   popMatrix();
   for (int i =0;i<object.size(); i++) {
+    int x=int(sin(sk+=0.061)*20);
     spots objectal = (spots) object.get(i);
-    objectal.display();
+    objectal.display(random(x-i, x+i));
     objectal.checkTouch();
     if (sum>sumOfIds) {
-      background(#FF1CFC);
+      background(255);
+      pushMatrix();
+      pushStyle();
+      textSize(50);
+      textAlign(CENTER, CENTER);      
+      translate(width/2, height/2);
+      text("BOOM", 0, 0);
+      popStyle();
+      popMatrix();
       println(sID);
       for (int j =0;j<100; j++) {
         svetsDone(sID);
@@ -62,6 +71,12 @@ void svetsSetup() {
 }
 
 
+
+
+
+
+/******************************************************************************************/
+
 class Particle {
   PVector location;
   PVector velocity;
@@ -70,7 +85,7 @@ class Particle {
 
   Particle(PVector l) {
     acceleration = new PVector(0, 0.05);
-    velocity = new PVector(random(-1, 1), random(-2, 0));
+    velocity = new PVector(random(-3, 3), random(-2, 1));
     location = l.get();
     lifespan = 255.0;
   }
@@ -89,7 +104,7 @@ class Particle {
 
   // Method to display
   void display() {
-    stroke(255, lifespan);
+    stroke(color(232, 216, 94), lifespan);
     fill(color(232, 216, 94), lifespan);
     ellipse(location.x, location.y, 2, 5);
   }
