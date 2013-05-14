@@ -104,7 +104,7 @@ public synchronized void update() {
           moveRight(0);
           moveUp(0);
           moveLeft(0);
-          currentLayout=1;
+          currentLayout=2;
         }
         else if (changeTo==3) {
           moveRight(0);

@@ -37,7 +37,7 @@ public synchronized void svetsTask() {
       textSize(50);
       textAlign(CENTER, CENTER);      
       translate(width/2, height/2);
-      text("BOOM", 0, 0);
+      text("AWESOME", 0, 0);
       popStyle();
       popMatrix();
       println(sID);
@@ -84,7 +84,7 @@ class Particle {
   float lifespan;
 
   Particle(PVector l) {
-    acceleration = new PVector(0, 0.05);
+    acceleration = new PVector(0, 0.5);
     velocity = new PVector(random(-3, 3), random(-2, 1));
     location = l.get();
     lifespan = 255.0;
