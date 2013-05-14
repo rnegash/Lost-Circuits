@@ -25,16 +25,17 @@ Button rectManipulate;
 
 APWidgetContainer widgetContainer; 
 APEditText textField;
-
+PShape pipe;
+ParticleSystem ps;
 
 
 /*
 *Datorns lokala ip, KOLLA ATT DEN STÄMMEMERERETERERERERERER
  
  */
-//String computerLAN="192.168.1.2";
+String computerLAN="192.168.1.5";
 //String computerLAN="192.168.1.120";
-String computerLAN="10.2.7.242";
+//String computerLAN="10.2.7.242";
 int playerID;
 float accY;//Värdet som skickas för accelerometern 
 
@@ -60,6 +61,7 @@ color highlight = color(175);
 color buttoncolor2 = color(80);
 
 void setup() {
+  size(displayWidth, displayHeight, P2D);
   orientation(LANDSCAPE);//håll telefonen som en hamburgare
   serial = Build.SERIAL;//telefonens serialkod, kommer att bli dess id
   /*
@@ -120,6 +122,27 @@ void setup() {
   widgetContainer.addWidget(textField); //place textField in container
 
   currentLayout=0;//vilken scen man börjar på, kolla switchen i draw()
+  object = new ArrayList();
+  ps = new ParticleSystem(new PVector(0, 0));
+
+  pipe = createShape();
+  pipe.setFill(color(100));
+  pipe.beginShape();
+  pipe.vertex(0, 0);
+  pipe.vertex(width/2, 0);
+  for (float x=displayWidth/2.28;x<displayWidth/2;x+=displayWidth/16) {
+    for (float y=displayHeight/9.6;y<displayHeight/1.06;y+=displayHeight/4.8) {
+      float x1=random(-displayWidth/16, displayWidth/16);
+      object.add(new spots(x+x1, y, displayWidth/16, counter++));
+      sumOfIds+=counter;
+      pipe.vertex(x+x1, y);
+    }
+  }
+  sumOfIds-=counter;
+
+  pipe.vertex(width/2, height);
+  pipe.vertex(0, height);
+  pipe.endShape(CLOSE);
 } 
 
 void draw() {

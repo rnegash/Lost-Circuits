@@ -2,9 +2,11 @@
 **svets that shit
  *
  */
+
 //float accY;//Värdet som skickas för accelerometern 
-// accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
-//    moveAccelerometerY(accY);
+//accY = map(accelerometerY, -10, 10, 270, 90);  //Skicka detta
+//moveAccelerometerY(accY);
+
 boolean svetsRun=true;
 int sID;
 int nur;
@@ -13,7 +15,10 @@ ArrayList object;
 public int sumOfIds; //Räknar ihop summan av id´na som har assignats till spotsen
 public int sum; //Räknar ihop summan av id´na som har assignats till spotsen
 float sk;
+
 public synchronized void svetsTask() {
+  background(50);
+  shape(pipe);
   //Loopa igenom spotsen och kör funktionerna för att visa och kolla touch
   if (svetsRun) {
     svetsSetup();
@@ -26,9 +31,10 @@ public synchronized void svetsTask() {
   }
   popMatrix();
   for (int i =0;i<object.size(); i++) {
-    int x=int(sin(sk+=0.061)*20);
+    //int x=int(sin(sk+=0.061)*5);
     spots objectal = (spots) object.get(i);
-    objectal.display(random(x-i, x+i));
+    //objectal.display(sin(sk+=0.03)*15);
+    objectal.display(0);
     objectal.checkTouch();
     if (sum>sumOfIds) {
       background(255);
@@ -53,21 +59,31 @@ public synchronized void svetsTask() {
 
   svetsRun=false;
 }
-ParticleSystem ps;
-
 void svetsSetup() {
   //svetsRun=true;
-  ps = new ParticleSystem(new PVector(0, 0));
-
+  //ps = new ParticleSystem(new PVector(0, 0));
+  //pipe = createShape();
+  /*
   object = new ArrayList();
-  //lägg till alla spots
-  for (float x=displayWidth/2.28;x<displayWidth/2;x+=displayWidth/16) {
-    for (float y=displayHeight/9.6;y<displayHeight/1.06;y+=displayHeight/4.8) {
-      object.add(new spots(x+random(-displayWidth/16, displayWidth/16), y, displayWidth/16, counter++));
-      sumOfIds+=counter;
-    }
-  }
-  sumOfIds-=counter;
+   //lägg till alla spots
+    /*  pipe.setFill(color(100));
+   
+   pipe.beginShape();
+   pipe.beginShape();
+   pipe.vertex(0, 0);
+   pipe.vertex(width/2, 0);
+   for (float x=displayWidth/2.28;x<displayWidth/2;x+=displayWidth/16) {
+   for (float y=displayHeight/9.6;y<displayHeight/1.06;y+=displayHeight/4.8) {
+   object.add(new spots(x+random(-displayWidth/16, displayWidth/16), y, displayWidth/16, counter++));
+   sumOfIds+=counter;
+   //pipe.vertex(x+random(-displayWidth/16, displayWidth/16), y);
+   }
+   }
+   pipe.vertex(width/2, height);
+   pipe.vertex(0, height);
+   pipe.endShape(CLOSE);
+   sumOfIds-=counter;
+   */
 }
 
 

@@ -16,10 +16,6 @@ void defaultLayout() {
   rectLeft.display();
   rectRight.display();
   rectManipulate.display();
-  if (changeButton) {
-    rectChange.display();
-  }
-  rectLight.display();
 
   if (rectLeft.pressed()||rectRight.pressed()) {
     moveSound.start();
@@ -43,13 +39,6 @@ void defaultLayout() {
   else {
     manipulateSound.pause();
     manipulateSound.seekTo(0);
-  }
-  if (rectLight.pressed()) {
-    switchSound.start();
-  }
-  else {
-    switchSound.pause();
-    switchSound.seekTo(0);
   }
 
   /*
@@ -79,18 +68,6 @@ void defaultLayout() {
   //line(720, 60, 750, 120);
   line(displayWidth/1.11, displayHeight/8, displayWidth/1.06, displayHeight/4);
 
-  popStyle();
-
-  //selectorikon
-  pushStyle();
-  strokeWeight(displayWidth/200);
-  stroke(255, 200);
-  //line( 80, 200, 140, 260);//light
-  line( displayWidth/10, displayHeight/2.4, displayWidth/5.7, displayHeight/1.8);//light
-  fill(255);
-  //strokeWeight(displayWidth/80);
-  //ellipse( 140, 260, displayWidth/200, displayHeight/120);
-  ellipse( displayWidth/5.7, displayHeight/1.8, displayWidth/80, displayHeight/48 );
   popStyle();
   promptMeth();
 }

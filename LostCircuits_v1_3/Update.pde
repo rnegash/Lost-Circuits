@@ -19,12 +19,11 @@ public synchronized void update() {
       oscP5 = new OscP5(this, oscP5Port);//Port för inkommande meddelanden, måste stämma med den i unity
       myBroadcastLocation = new NetAddress(computerLAN, playerID);
       connect(broadcastPort, oscP5Port);
-
-      rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #22BAE3, #22BAE3);//light
+      
       println(textField.getText());
       pTimer=millis()+8000;
       widgetContainer.hide(); 
-      currentLayout=2;
+      currentLayout=1;
       println(computerLAN);
     }
     else if (rectPlayer2.pressed()) {
@@ -36,7 +35,6 @@ public synchronized void update() {
       myBroadcastLocation = new NetAddress(computerLAN, playerID);
       connect(broadcastPort, oscP5Port);
 
-      rectLight = new Button("light", displayWidth/11.4, displayHeight/2.5, displayWidth/8.5, #E82560, #E82560);//light
       println(textField.getText());
       widgetContainer.hide(); 
       pTimer=millis()+8000;
@@ -66,63 +64,17 @@ public synchronized void update() {
     else {
       moveUp(0);
     }
-    if (rectLight.pressed()) {//right
-      lightB=true;
-      if (playerID==8001) {
-        rectLight.setColor( #22BAE3, #22BAE3);//MAIPULATEBUTTON
-      }
-      if (playerID==8002) {
-        rectLight.setColor( #E82560, #E82560);//MAIPULATEBUTTON
-      }
-    }
-    else {
-      lightB=false;
-      rectLight.setColor(#FAF447, #FAF447);//light
-    }
     if (rectManipulate.pressed()) {//manip
       pushStyle();
       ellipseMode(CENTER);
       fill(100);
       ellipse(gxVal, gyVal, 20, 20);
       popStyle();
-      if (lightB) {
-        moveSpotLight(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
-        //println("manioperkp");
-      }
-      else {
-        manipulate(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
-        //println("lajjt");
-      }
+      manipulate(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
       //println(gxVal-displayWidth/1.88+"   "+ (gyVal-displayHeight/1.65)*-1);
     }
     else {
       manipulate(0, 0);//Flyttar 0,0 till mitten av knappen/ytan
-    }
-    if (rectChange.pressed()) {//manip
-      if (changeButton) {
-        if (changeTo==2) {
-          moveRight(0);
-          moveUp(0);
-          moveLeft(0);
-          currentLayout=2;
-        }
-        else if (changeTo==3) {
-          moveRight(0);
-          moveUp(0);
-          moveLeft(0);
-          currentLayout=3;
-        }
-      }
-      if (explodeB) {
-        currentLayout=1;
-        //explode(1);
-        prompt="   :)";
-        vibe.vibrate(1000);
-        explodeB=false;
-      }
-      else {
-        //explode(0);
-      }
     }
   }
   /*****************FÖRSTA ACCEN*********************/

@@ -32,7 +32,7 @@ class spots {
         if (added==false) {
           sum+=id;
           added=true;
-          f=255;
+          f=color(#D1CECC);
         }
         else {
           //added=false;
@@ -42,7 +42,7 @@ class spots {
       }
     }
     else {
-      f=100;
+      f=color(#E58225);
       added=false;
       //pid=0;
       sum=0;
@@ -56,3 +56,4 @@ class spots {
     }
   }
 }
+
