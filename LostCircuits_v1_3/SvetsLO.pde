@@ -66,7 +66,7 @@ void svetsSetup() {
   /*
   object = new ArrayList();
    //lägg till alla spots
-    /*  pipe.setFill(color(100));
+      /*  pipe.setFill(color(100));
    
    pipe.beginShape();
    pipe.beginShape();

@@ -19,7 +19,7 @@ public synchronized void update() {
       oscP5 = new OscP5(this, oscP5Port);//Port för inkommande meddelanden, måste stämma med den i unity
       myBroadcastLocation = new NetAddress(computerLAN, playerID);
       connect(broadcastPort, oscP5Port);
-      
+
       println(textField.getText());
       pTimer=millis()+8000;
       widgetContainer.hide(); 
@@ -29,7 +29,10 @@ public synchronized void update() {
     else if (rectPlayer2.pressed()) {
       introText="You chose red, please wait...";  
       bg=color(#360001);
-      pc=color(#DB3C41);      
+      pc=color(#DB3C41);  
+      if (!textField.getText().equals("")) {
+        computerLAN=textField.getText();
+      }    
       playerID=8002;
       oscP5 = new OscP5(this, oscP5Port);//Port för inkommande meddelanden, måste stämma med den i unity
       myBroadcastLocation = new NetAddress(computerLAN, playerID);
