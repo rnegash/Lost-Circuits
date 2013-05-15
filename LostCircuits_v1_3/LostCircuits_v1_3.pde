@@ -33,7 +33,7 @@ ParticleSystem ps;
 *Datorns lokala ip, KOLLA ATT DEN STÄMMEMERERETERERERERERER
  
  */
-String computerLAN="192.168.1.5";
+String computerLAN="192.168.1.103";
 //String computerLAN="192.168.1.120";
 //String computerLAN="10.2.7.242";
 int playerID;

@@ -12,7 +12,7 @@ public synchronized void update() {
       introText="You chose blue, please wait...";  
       bg=color(#020036);
       pc=color(#3E87EA);      
-      if (textField.getText()!=null) {
+      if (!textField.getText().equals("")) {
         computerLAN=textField.getText();
       }
       playerID=8001;
