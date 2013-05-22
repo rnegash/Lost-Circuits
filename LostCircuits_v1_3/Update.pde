@@ -39,8 +39,8 @@ public synchronized void update() {
       connect(broadcastPort, oscP5Port);
 
       println(textField.getText());
-      widgetContainer.hide(); 
       pTimer=millis()+8000;
+      widgetContainer.hide(); 
       currentLayout=1;
     }
   }
@@ -74,6 +74,7 @@ public synchronized void update() {
       ellipse(gxVal, gyVal, 20, 20);
       popStyle();
       manipulate(gxVal-displayWidth/1.88, (gyVal-displayHeight/1.65)*-1);//Flyttar 0,0 till mitten av knappen/ytan
+      //manipulate(gxVal-400, (gyVal-350)*-1);//Flyttar 0,0 till mitten av knappen/ytan
       //println(gxVal-displayWidth/1.88+"   "+ (gyVal-displayHeight/1.65)*-1);
     }
     else {

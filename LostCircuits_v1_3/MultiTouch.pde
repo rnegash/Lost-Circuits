@@ -14,9 +14,14 @@ public boolean surfaceTouchEvent(MotionEvent event) {
   float xVal=event.getX(actionIndex);
   float yVal=event.getY(actionIndex);
   //Globala x och yvärden, använd helst inte
-  gxVal=xVal;
-  gyVal=yVal;
-
+  /* if (actionIndex==2) {
+   gxVal=event.getX(2);
+   gyVal=event.getY(2);
+   }
+   else {
+   gxVal=event.getX(actionIndex);
+   gyVal=event.getY(actionIndex);
+   }*/
   if ( action2 == MotionEvent.ACTION_DOWN || action2 == MotionEvent.ACTION_POINTER_DOWN  ) {
     buttonsDown( pointerId, xVal, yVal );//Registrera finger när det har nått skärmens yta
   }

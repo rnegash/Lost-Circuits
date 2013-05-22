@@ -33,7 +33,7 @@ ParticleSystem ps;
 *Datorns lokala ip, KOLLA ATT DEN STÄMMEMERERETERERERERERER
  
  */
-String computerLAN="192.168.1.103";
+String computerLAN="192.168.1.102";
 //String computerLAN="192.168.1.120";
 //String computerLAN="10.2.7.242";
 int playerID;
@@ -84,7 +84,6 @@ void setup() {
   vibe = new KetaiVibrate(this);//Starta vibratorn, mmmmm, kolla vibratorpermission om det inte fungerar. Används just nu i oscEvent()
   sensor.start();//ketai, starta för att få access till sensorerna
   //frameRate(15);
-
   loadMediaFiles();
   // Define and create buttons
   //Knappar för setupScreen();

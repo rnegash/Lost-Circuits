@@ -51,7 +51,7 @@ public synchronized void oscEvent(OscMessage theOscMessage) {
   if (list[1].equals("gravity") && list[2].equals(serial)) {
     vibe.vibrate(200);
     gravB=true;
-    prompt="FLIPP UITTTT";
+    prompt="Whoaaa";
   }
   /* if (list[1].equals("explode") && list[2].equals(serial)) {
    vibe.vibrate(200);
