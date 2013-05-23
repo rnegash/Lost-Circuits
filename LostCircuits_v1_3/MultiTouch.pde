@@ -15,8 +15,8 @@ public boolean surfaceTouchEvent(MotionEvent event) {
   float yVal=event.getY(actionIndex);
   //Globala x och yvärden, använd helst inte
   //if (actionIndex==2) {
-   gxVal=event.getX(2);
-   gyVal=event.getY(2);
+   gxVal=xVal;
+   gyVal=yVal;
    /*}
    else {
    gxVal=event.getX(actionIndex);
